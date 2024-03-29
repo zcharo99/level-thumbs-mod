@@ -7,7 +7,7 @@ using namespace geode::prelude;
 #include "ThumbnailPopup.hpp"
 #include "utils.h"
 void ThumbnailPopup::onDownload(CCObject*sender){
-	std::string URL = fmt::format("https://cdc-sys.github.io/level-thumbnails/thumbs/{}.png", this->levelID);
+	std::string URL = fmt::format("https://raw.githubusercontent.com/PlusGDPS/level-thumbnails/main/thumbs/{}.png", this->levelID);
 	CCApplication::sharedApplication()->openURL(URL.c_str());
 }
 void ThumbnailPopup::openDiscordServerPopup(){
@@ -24,7 +24,7 @@ void ThumbnailPopup::openDiscordServerPopup(){
         "No Thanks", "JOIN!",
         [this](auto, bool btn2) {
             if (btn2) {
-                CCApplication::sharedApplication()->openURL("https://discord.gg/K6M4RduZxY");
+                CCApplication::sharedApplication()->openURL("https://discord.gg/umPTrqmkFD");
             }
         }
     );
@@ -56,7 +56,7 @@ bool ThumbnailPopup::setup(int id) {
 	}
 	else {
 		this->retain();
-		std::string URL = fmt::format("https://raw.githubusercontent.com/cdc-sys/level-thumbnails/main/thumbs/{}.png", levelID);
+		std::string URL = fmt::format("https://raw.githubusercontent.com/PlusGDPS/level-thumbnails/main/thumbs/{}.png", levelID);
 		web::AsyncWebRequest()
 			.fetch(URL)
 			.bytes()
