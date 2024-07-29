@@ -85,7 +85,7 @@ class $modify(MyLevelCell, LevelCell) {
             return;
         }
 
-        std::string URL = fmt::format("https://raw.githubusercontent.com/cdc-sys/level-thumbnails/main/thumbs/{}.png",(int)m_level->m_levelID);
+        std::string URL = fmt::format("https://cdn.jsdelivr.net/gh/PlusGDPS/level-thumbnails/thumbs/{}.png",(int)m_level->m_levelID);
 
         auto req = web::WebRequest();
         m_fields->m_downloadListener.bind([this](web::WebTask::Event* e){
@@ -209,8 +209,10 @@ class $modify(MyLevelCell, LevelCell) {
             border->setPosition(bg->getPosition());
             border->setColor(bg->getColor());
             border->setZOrder(5);
-            border->setID("border"_spr);
-            dln->addChild(border);
+            if (!dln->getChildByID("border"_spr)) {
+                border->setID("border"_spr);
+                dln->addChild(border);
+            }
         }
 
         if(CCNode* node = dln->getChildByID("crown-sprite")){
