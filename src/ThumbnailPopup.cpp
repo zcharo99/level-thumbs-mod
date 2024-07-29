@@ -8,8 +8,8 @@ using namespace geode::prelude;
 #include "utils.hpp"
 #include "ImageCache.hpp"
 
-void ThumbnailPopup::onDownload(CCObject*sender){
-    std::string URL = fmt::format("https://raw.githubusercontent.com/cdc-sys/level-thumbnails/main/thumbs/{}.png", m_levelID);
+void ThumbnailPopup::onDownload(CCObject* sender){
+    std::string URL = fmt::format("https://cdn.jsdelivr.net/gh/PlusGDPS/level-thumbnails/thumbs/{}.png", m_levelID);
     CCApplication::sharedApplication()->openURL(URL.c_str());
 }
 
@@ -41,7 +41,7 @@ bool ThumbnailPopup::setup(int id) {
 
     CCMenu* downloadMenu = CCMenu::create();
     CCSprite* downloadSprite = CCSprite::createWithSpriteFrameName("GJ_downloadBtn_001.png");
-    m_downloadBtn = CCMenuItemSpriteExtra::create(downloadSprite,this,menu_selector(ThumbnailPopup::onDownload));
+    m_downloadBtn = CCMenuItemSpriteExtra::create(downloadSprite, this, menu_selector(ThumbnailPopup::onDownload));
     m_downloadBtn->setEnabled(false);
     m_downloadBtn->setColor({125,125,125});
     downloadMenu->setPosition({m_mainLayer->getContentWidth()-28,30});
@@ -59,7 +59,7 @@ bool ThumbnailPopup::setup(int id) {
         return true;
     }
     
-    std::string URL = fmt::format("https://raw.githubusercontent.com/cdc-sys/level-thumbnails/main/thumbs/{}.png", m_levelID);
+    std::string URL = fmt::format("https://cdn.jsdelivr.net/gh/PlusGDPS/level-thumbnails/thumbs/{}.png", m_levelID);
 
     auto req = web::WebRequest();
     m_downloadListener.bind([this](web::WebTask::Event* e){
