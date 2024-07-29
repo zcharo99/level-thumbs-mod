@@ -1,13 +1,13 @@
 {
-    "geode": "3.2.0",
+    "geode": "3.3.1",
     "gd": { 
         "win": "2.206", 
         "android": "2.206",
         "mac": "2.206"
     },
     "version": "v1.0.6",
-    "id": "cdc.level_thumbnails",
-    "name": "Level Thumbnails",
+    "id": "plusgdps.level_thumbnails",
+    "name": "Level Thumbnails (PlusGDPS)",
     "developer": "cdc",
     "repository": "https://github.com/cdc-sys/level-thumbs-mod",
     "description": "Adds thumbnails to levels in search.",
@@ -37,7 +37,7 @@
 
     "dependencies": [{
         "id": "geode.node-ids",
-        "version": ">=1.7.1",
+        "version": ">=1.12.0",
         "importance": "required"
     }]
 }
